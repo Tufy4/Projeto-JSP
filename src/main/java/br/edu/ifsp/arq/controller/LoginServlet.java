@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
 		String senha = request.getParameter("senha");
 
 		if (usuario.isEmpty() || senha.isEmpty()) {
-			msg = "Nome e descrição não podem ser vazios";	
+			msg = "Tem que preencher o campo de usuario e senha";	
 			
 			request.setAttribute("mensagem", msg);
 			getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
