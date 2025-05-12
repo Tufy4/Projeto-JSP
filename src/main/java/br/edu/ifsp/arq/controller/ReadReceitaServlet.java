@@ -55,7 +55,7 @@ public class ReadReceitaServlet extends HttpServlet {
 
         out.append("</tbody>");
         out.append("</table>");
-        out.append("<a href='/Atividade1/index.html'>Adicionar Nova Receita</a>");
+        out.append("<a href='/index.jsp'>Adicionar Nova Receita</a>");
         out.append("</body></html>");
     }
 }

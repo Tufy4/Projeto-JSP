@@ -83,7 +83,7 @@ public class UpdateReceitaServlet extends HttpServlet {
             receitaSelecionada.setModoPreparo(modoPreparo);
 
             getServletContext().setAttribute("lista", listaReceitas);
-            response.sendRedirect("/Atividade1/ReadReceitaServlet"); 
+            response.sendRedirect("/ReadReceitaServlet"); 
         }
     }
 }
