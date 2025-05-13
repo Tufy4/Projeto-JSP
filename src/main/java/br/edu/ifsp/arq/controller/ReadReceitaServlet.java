@@ -46,8 +46,8 @@ public class ReadReceitaServlet extends HttpServlet {
             out.append("<td>").append(receita.getCategoria()).append("</td>");
             out.append("<td>");
             
-            out.append("<a href='/Atividade1/UpdateReceitaServlet?id=" + receita.getId() + "'>Editar</a> | ");
-            out.append("<a href='/Atividade1/DeleteReceitaServlet?id=" + receita.getId() + "'>Deletar</a>");
+            out.append("<a href='/Projeto-Receitas/UpdateReceitaServlet?id=" + receita.getId() + "'>Editar</a> | ");
+            out.append("<a href='/Projeto-Receitas/DeleteReceitaServlet?id=" + receita.getId() + "'>Deletar</a>");
             
             out.append("</td>");
             out.append("</tr>");
@@ -55,7 +55,7 @@ public class ReadReceitaServlet extends HttpServlet {
 
         out.append("</tbody>");
         out.append("</table>");
-        out.append("<a href='/index.jsp'>Adicionar Nova Receita</a>");
+        out.append("<a href='/Projeto-Receitas/index.jsp'>Adicionar Nova Receita</a>");
         out.append("</body></html>");
     }
 }
