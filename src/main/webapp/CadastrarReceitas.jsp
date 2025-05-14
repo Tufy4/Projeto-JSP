@@ -61,19 +61,61 @@
 </head>
 <body>
 
+<%
+  
+    if (session.getAttribute("usuarioNome") == null) {
+       
+        response.sendRedirect("login.jsp");
+    } 
+
+
+%>
+
 <header>
     <h1>Sistema de Receitas</h1>
 </header>
+
 
 <nav>
     <a href="index.jsp">Home</a>
     <a href="sobre.jsp">Sobre o Sistema</a>
     <a href="login.jsp">Login</a>
     <a href="CadastrarReceitas.jsp">Cadastrar Receitas</a>
-    <a href="lista-receitas.jsp">Receitas</a>
     
+    <a>Sair</a>
 </nav>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<div class="container">
+    <h2>Adicionar Receita</h2>
+    <form action="CreateReceitaServlet" method="post">
+        <label for="nome">Nome da Receita:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="autor">Autor:</label>
+        <input type="text" id="autor" name="autor" required>
+
+        <label for="tempo">Tempo de Preparo (em minutos):</label>
+        <input type="text" id="tempo" name="tempo" required>
+
+        <label for="ingredientes">Ingredientes:</label>
+        <textarea id="ingredientes" name="ingredientes" required></textarea>
+
+        <label for="modo">Modo de Preparo:</label>
+        <textarea id="modo" name="modo" required></textarea>
+
+        <label for="categoria">Categoria:</label>
+        <select id="categoria" name="categoria" required>
+            <option value="sobremesa">Sobremesa</option>
+            <option value="pratoPrincipal">Prato Principal</option>
+            <option value="entrada">Entrada</option>
+        </select>
+
+        <label for="avaliacao">Avaliação:</label>
+        <input type="number" id="avaliacao" name="avaliacao" min="1" max="5" required>
+
+        <button type="submit">Adicionar Receita</button>
+    </form>
+</div>
+
 </body>
 </html>

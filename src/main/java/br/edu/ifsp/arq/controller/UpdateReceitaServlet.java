@@ -10,20 +10,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.edu.ifsp.arq.dao.ReceitasDAO;
 import br.edu.ifsp.arq.model.Receita;
 
 @WebServlet("/UpdateReceitaServlet")
 public class UpdateReceitaServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
+    private ReceitasDAO dao;
     public UpdateReceitaServlet() {
-        super();
+    	super();
+    	dao = ReceitasDAO.getInstance();
+        
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
 
-        ArrayList<Receita> listaReceitas = (ArrayList<Receita>) getServletContext().getAttribute("lista");
+        ArrayList<Receita> listaReceitas = dao.getListaReceitas();
         Receita receitaSelecionada = null;
         for (Receita receita : listaReceitas) {
             if (receita.getId() == id) {
@@ -40,7 +43,7 @@ public class UpdateReceitaServlet extends HttpServlet {
             out.println("<head><title>Editar Receita</title></head>");
             out.println("<body>");
             out.println("<h1>Editar Receita</h1>");
-            out.println("<form action='/Atividade1/UpdateReceitaServlet' method='POST'>");
+            out.println("<form action='/Projeto-Receitas/UpdateReceitaServlet' method='POST'>");
             out.println("<input type='hidden' name='id' value='" + receitaSelecionada.getId() + "'/>");
             out.println("<label>Nome: </label><input type='text' name='nome' value='" + receitaSelecionada.getNomeReceita() + "' required /><br>");
             out.println("<label>Autor: </label><input type='text' name='autor' value='" + receitaSelecionada.getAutor() + "' required /><br>");
@@ -64,7 +67,7 @@ public class UpdateReceitaServlet extends HttpServlet {
         String ingredientes = request.getParameter("ingredientes");
         String modoPreparo = request.getParameter("modo");
 
-        ArrayList<Receita> listaReceitas = (ArrayList<Receita>) getServletContext().getAttribute("lista");
+        ArrayList<Receita> listaReceitas = dao.getListaReceitas();
         Receita receitaSelecionada = null;
 
         for (Receita receita : listaReceitas) {
@@ -83,7 +86,7 @@ public class UpdateReceitaServlet extends HttpServlet {
             receitaSelecionada.setModoPreparo(modoPreparo);
 
             getServletContext().setAttribute("lista", listaReceitas);
-            response.sendRedirect("/ReadReceitaServlet"); 
+            response.sendRedirect("ReadReceitaServlet"); 
         }
     }
 }

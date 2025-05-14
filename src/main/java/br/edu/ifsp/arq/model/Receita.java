@@ -3,13 +3,13 @@ package br.edu.ifsp.arq.model;
 public class Receita {
 
     private int id;
-    private String nomeReceita;
-    private String autor;
-    private String tempo;
-    private String ingredientes;
-    private String modoPreparo;
-    private String categoria;
-    private int avaliacao;
+    public String nomeReceita;
+    public String autor;
+    public String tempo;
+    public String ingredientes;
+    public String modoPreparo;
+    public String categoria;
+    public int avaliacao;
 
     // Construtor
     public Receita(int id, String nomeReceita, String autor, String tempo, 

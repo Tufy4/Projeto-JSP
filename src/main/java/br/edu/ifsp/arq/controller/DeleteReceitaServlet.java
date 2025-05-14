@@ -9,18 +9,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.edu.ifsp.arq.dao.ReceitasDAO;
 import br.edu.ifsp.arq.model.Receita;
 
 @WebServlet("/DeleteReceitaServlet")
 public class DeleteReceitaServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
+    private ReceitasDAO dao=ReceitasDAO.getInstance();
+    
+    
+    
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String idParam = request.getParameter("id");
         if (idParam != null) {
             int id = Integer.parseInt(idParam);
 
-            ArrayList<Receita> listaReceitas = (ArrayList<Receita>) getServletContext().getAttribute("lista");
+            ArrayList<Receita> listaReceitas = dao.getListaReceitas();
 
             if (listaReceitas != null) {
                 Receita receitaAExcluir = null;
@@ -31,9 +35,9 @@ public class DeleteReceitaServlet extends HttpServlet {
                     }
                 }
 
-                if (receitaAExcluir != null) {
+                if (receitaAExcluir != null ) {
                     listaReceitas.remove(receitaAExcluir);
-                    getServletContext().setAttribute("lista", listaReceitas);
+                   
                 }
             }
         }
