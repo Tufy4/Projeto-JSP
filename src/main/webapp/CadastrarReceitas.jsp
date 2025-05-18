@@ -87,7 +87,7 @@
 
 <div class="container">
     <h2>Adicionar Receita</h2>
-    <form action="CreateReceitaServlet" method="post">
+    <form action="CreateReceitaServlet" method="post" enctype="multipart/form-data">
         <label for="nome">Nome da Receita:</label>
         <input type="text" id="nome" name="nome" required>
 
@@ -112,6 +112,9 @@
 
         <label for="avaliacao">Avaliação:</label>
         <input type="number" id="avaliacao" name="avaliacao" min="1" max="5" required>
+        
+        <label for="foto">Foto da Receita:</label>
+		<input type="file" id="foto" name="foto" accept="image/*" required>
 
         <button type="submit">Adicionar Receita</button>
     </form>

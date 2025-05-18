@@ -10,6 +10,8 @@ public class Receita {
     public String modoPreparo;
     public String categoria;
     public int avaliacao;
+    private String fotoCaminho; 
+    
 
     // Construtor
     public Receita(int id, String nomeReceita, String autor, String tempo, 
@@ -88,4 +90,13 @@ public class Receita {
     public void setAvaliacao(int avaliacao) {
         this.avaliacao = avaliacao;
     }
+
+    public String getFotoPath() {
+        return fotoCaminho;
+    }
+
+    public void setFotoPath(String fotoCaminho) {
+        this.fotoCaminho = fotoCaminho;
+    }
+
 }

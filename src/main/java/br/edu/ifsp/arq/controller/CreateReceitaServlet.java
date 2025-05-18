@@ -11,6 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 import br.edu.ifsp.arq.dao.ReceitasDAO;
 import br.edu.ifsp.arq.dao.UsuarioDAO;
 import br.edu.ifsp.arq.model.Receita;
+//para adicionar upload
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.Part;
+import java.io.File;
+import java.nio.file.Path;
+
+
+@MultipartConfig
 
 @WebServlet("/CreateReceitaServlet")
 public class CreateReceitaServlet extends HttpServlet {
@@ -28,7 +36,16 @@ public class CreateReceitaServlet extends HttpServlet {
         String categoria = request.getParameter("categoria");
         int avaliacao = Integer.parseInt(request.getParameter("avaliacao"));
 
+        Part fotoPart = request.getPart("foto");
+        String fileName = Path.of(fotoPart.getSubmittedFileName()).getFileName().toString();
+        String uploadPath = getServletContext().getRealPath("") + "uploads";
+        File uploadDir = new File(uploadPath);
+        if (!uploadDir.exists()) uploadDir.mkdir();
+        String filePath = uploadPath + File.separator + fileName;
+        fotoPart.write(filePath);
+
         Receita receita = new Receita(id, nomeReceita, autor, tempoPreparo, ingredientes, modoPreparo, categoria, avaliacao);
+        receita.setFotoPath("uploads/" + fileName);
         dao.adicionarReceitas(receita);
         
         id++;
