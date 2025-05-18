@@ -9,9 +9,9 @@ public class UsuarioDAO {
 	
 	private UsuarioDAO() {
 		listaDeUsuarios = new ArrayList<Usuario>();
-		
-		Usuario automatico = new Usuario("miguel","123");
-		listaDeUsuarios.add(automatico);
+//		
+//		Usuario automatico = new Usuario("miguel","123");
+//		listaDeUsuarios.add(automatico);
 		
 	}
 	
@@ -57,6 +57,19 @@ public class UsuarioDAO {
 		return situacao;
 	}
 	
+	public boolean ExisteUsuario(String user,String password) {
+		boolean retorno =false;
+			for(int i = 0;i<listaDeUsuarios.size();i++) {
+				if(user.equals(listaDeUsuarios.get(i).getUsuario()) && password.equals(listaDeUsuarios.get(i).getSenha())) {
+					retorno = true;
+				}
+					
+			}
+		
+		
+		
+		return retorno;
+	}
 	
 	
 }

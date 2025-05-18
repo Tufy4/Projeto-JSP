@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page import="br.edu.ifsp.arq.model.Receita" %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -45,7 +45,9 @@
                 <li class="nav-item"><a class="nav-link text-white" href="sobre.jsp">Sobre o Sistema</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="login.jsp">Login</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="CadastrarReceitas.jsp">Cadastrar Receitas</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="lista-receitas.jsp">Receitas</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="/Projeto-Receitas/ReadReceitaServlet">Receitas</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="Logout">Sair</a></li>
+          
             </ul>
         </div>
     </div>
@@ -53,7 +55,9 @@
 
 <div class="container mt-5">
 <%
-    List<Receita> lista = (List<Receita>) request.getAttribute("listaReceitas");
+ArrayList<Receita> lista = (ArrayList<Receita>) request.getAttribute("listaReceitas");
+
+
     if (lista == null || lista.isEmpty()) {
 %>
     <div class="alert alert-warning" role="alert">

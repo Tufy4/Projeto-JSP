@@ -69,9 +69,8 @@
     <a href="index.jsp">Home</a>
     <a href="sobre.jsp">Sobre o Sistema</a>
     <a href="login.jsp">Login</a>
-    <a href="CadastrarReceitas.jsp">Cadastrar Receitas</a>
-    <a href="lista-receitas.jsp">Receitas</a>
-    
+    <a href="CadastrarUsuario.jsp">Cadastre-se</a>
+    <a href="/Projeto-Receitas/ReadReceitaServlet">Receitas</a>
 </nav>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

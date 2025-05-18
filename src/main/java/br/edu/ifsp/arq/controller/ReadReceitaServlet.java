@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,10 +24,7 @@ public class ReadReceitaServlet extends HttpServlet {
 
         ArrayList<Receita> listaReceitas = dao.getListaReceitas();
         
-        
-        
-        request.getSession().setAttribute("listaReceitas", listaReceitas);
-        
+        request.setAttribute("listaReceitas", listaReceitas);
 
         request.getRequestDispatcher("/lista-receitas.jsp").forward(request, response);
     }
