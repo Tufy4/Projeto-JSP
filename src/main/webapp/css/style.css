@@ -1,0 +1,176 @@
+/* Ajustando o carrossel para ser menor e centralizado */
+.carousel-inner {
+	height: 600px;
+	/* Defina a altura do carrossel */
+}
+
+.carousel-inner img {
+	object-fit: cover;
+	/* Garante que a imagem preencha o espaço sem distorcer */
+	height: 100%;
+	/* A imagem ocupará 100% da altura do carrossel */
+}
+
+.carousel {
+	max-width: 1200px;
+	/* Limita a largura do carrossel */
+	margin: 0 auto;
+	/* Centraliza o carrossel na página */
+}
+
+#carouselExampleIndicators {
+	margin-top: 50px;
+	/* Adiciona 50px de margem superior ao carrossel */
+}
+
+.mt-50 {
+	margin-top: 50px;
+}
+
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+	font-family: 'Quicksand', sans-serif;
+	color: #e74c3c;
+	margin-bottom: 30px;
+}
+
+.carousel-item {
+	position: relative;
+	height: 500px;
+	min-height: 400px;/* Defina uma altura mínima */
+
+}
+
+.carousel-item img {
+	object-fit: cover;
+	height: 100%;
+}
+
+.carousel-caption {
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 5px;
+	padding: 20px;
+	max-width: 90%;
+	word-wrap: break-word;
+	bottom: 10%;
+}
+
+.carousel-caption h5 {
+	font-size: 4vw;
+	font-weight: 700;
+	color: #fff;
+}
+
+.carousel-caption p {
+	font-size: 1.2rem;
+	color: #fff;
+}
+
+.card-body {
+	padding: 15px;
+}
+
+.card-footer {
+	background-color: #f8f9fa;
+	border-top: 1px solid #ddd;
+}
+
+.card:hover {
+	transform: scale(1.05);
+	transition: all 0.3s ease-in-out;
+}
+
+.btn-recipe {
+	background-color: #e74c3c;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	text-transform: uppercase;
+	font-weight: bold;
+	border-radius: 5px;
+}
+
+.btn-recipe:hover {
+	background-color: #c0392b;
+	cursor: pointer;
+}
+
+/* Estilo adicional para o botão */
+.btn {
+	width: 200px;
+	/* Defina a largura do botão */
+	height: 60px;
+	/* Defina a altura do botão */
+	font-size: 18px;
+	/* Ajuste o tamanho da fonte */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	/* Centraliza o texto dentro do botão */
+}
+
+
+#searchForm {
+	transition: all 0.3s ease;
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translateY(-50%);
+	background-color: white;
+	border-radius: 25px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	padding: 5px 10px;
+	display: flex;
+	align-items: center;
+	width: 0;
+	opacity: 0;
+}
+
+#searchForm.open {
+	width: 200px;
+	opacity: 1;
+}
+
+#searchForm input {
+	border: none;
+	outline: none;
+	padding: 5px;
+	border-radius: 15px;
+	width: 100%;
+}
+
+#searchForm button {
+	border-radius: 50%;
+	padding: 5px;
+	margin-left: 5px;
+}
+
+#searchToggle {
+	font-size: 1.5rem;
+	background: none;
+	border: none;
+	color: white;
+	cursor: pointer;
+}
+
+#searchCollapse {
+	transition: max-height 0.3s ease-in-out;
+	max-height: 0;
+	overflow: hidden;
+}
+
+#searchCollapse.show {
+	max-height: 200px;
+	/* Ajuste conforme necessário */
+}
+
+/* Altera a cor do ícone da lupa */
+.navbar .btn-search .bi-search {
+	color: #007bff;
+	/* Substitua por qualquer cor desejada */
+}

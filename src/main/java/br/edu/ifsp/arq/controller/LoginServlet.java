@@ -47,6 +47,7 @@ public class LoginServlet extends HttpServlet {
 			if (retorno == -1) {
 				msg = "Não há usuários cadastrados";
 				System.out.println(msg);
+				getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
 			} else if (retorno == 0) {
 				msg = "Senha ou Login incorretos";
 				System.out.println(msg);
@@ -64,7 +65,7 @@ public class LoginServlet extends HttpServlet {
 				System.out.println("Sessão criada: " + session.getId());
 				
 			
-				getServletContext().getRequestDispatcher("/resposta.jsp").forward(request, response);
+				getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 			}
 		}
 	}

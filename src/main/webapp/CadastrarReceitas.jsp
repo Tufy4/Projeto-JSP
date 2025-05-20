@@ -1,125 +1,74 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<title>PÃ¡gina Inicial - Sistema de Receitas</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-    }
-    header {
-        background-color: #333;
-        color: white;
-        padding: 10px 0;
-        text-align: center;
-    }
-    nav {
-        background-color: #555;
-        overflow: hidden;
-    }
-    nav a {
-        color: white;
-        padding: 14px 20px;
-        text-decoration: none;
-        display: inline-block;
-    }
-    nav a:hover {
-        background-color: #ddd;
-        color: black;
-    }
-    .container {
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: white;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
-    form input, form select, form textarea {
-        width: 100%;
-        padding: 10px;
-        margin: 10px 0;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-    button {
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-        border-radius: 5px;
-    }
-    button:hover {
-        background-color: #45a049;
-    }
-</style>
-</head>
-<body>
+<%@ include file="header.jsp" %>
 
 <%
-  
-    if (session.getAttribute("usuarioNome") == null) {
-       
-        response.sendRedirect("login.jsp");
-    } 
-
-
+if (session.getAttribute("usuarioNome") == null) {
+    response.sendRedirect("login.jsp");
+}
 %>
 
-<header>
-    <h1>Sistema de Receitas</h1>
-</header>
-
-
-
-<nav>
-    <a href="index.jsp">Home</a>
-    <a href="sobre.jsp">Sobre o Sistema</a>
-    <a href="login.jsp">Login</a>
-    <a href="CadastrarReceitas.jsp">Cadastrar Receitas</a>
-    <a href="/Projeto-Receitas/ReadReceitaServlet">Receitas</a>
-    <a href="Logout">Sair</a>
-</nav>
-
-<div class="container">
-    <h2>Adicionar Receita</h2>
+<div class="container minimal-container col-lg-6">
+    <h2 class="minimal-title text-center">Nova Receita</h2>
     <form action="CreateReceitaServlet" method="post" enctype="multipart/form-data">
-        <label for="nome">Nome da Receita:</label>
-        <input type="text" id="nome" name="nome" required>
+        <div class="field-group">
+            <label for="nome" class="form-label">Nome da Receita</label>
+            <input type="text" class="form-control" id="nome" name="nome" required>
+        </div>
 
-        <label for="autor">Autor:</label>
-        <input type="text" id="autor" name="autor" required>
+        <div class="field-group">
+            <label for="autor" class="form-label">Autor</label>
+            <input type="text" class="form-control" id="autor" name="autor" required>
+        </div>
 
-        <label for="tempo">Tempo de Preparo (em minutos):</label>
-        <input type="text" id="tempo" name="tempo" required>
+        <div class="field-group">
+            <label for="tempo" class="form-label">Tempo de Preparo (minutos)</label>
+            <input type="text" class="form-control" id="tempo" name="tempo" required>
+        </div>
 
-        <label for="ingredientes">Ingredientes:</label>
-        <textarea id="ingredientes" name="ingredientes" required></textarea>
+        <div class="row">
+            <div class="col-md-6 field-group">
+                <label for="categoria" class="form-label">Categoria</label>
+                <select class="form-select" id="categoria" name="categoria" required>
+                    <option value="" selected disabled>Selecione</option>
+                    <option value="sobremesa">Sobremesa</option>
+                    <option value="pratoPrincipal">Prato Principal</option>
+                    <option value="entrada">Entrada</option>
+                </select>
+            </div>
 
-        <label for="modo">Modo de Preparo:</label>
-        <textarea id="modo" name="modo" required></textarea>
+            <div class="col-md-6 field-group">
+                <label for="avaliacao" class="form-label">Avaliação</label>
+                <select class="form-select" id="avaliacao" name="avaliacao" required>
+                    <option value="" selected disabled>Selecione</option>
+                    <option value="1">1 estrela</option>
+                    <option value="2">2 estrelas</option>
+                    <option value="3">3 estrelas</option>
+                    <option value="4">4 estrelas</option>
+                    <option value="5">5 estrelas</option>
+                </select>
+            </div>
+        </div>
 
-        <label for="categoria">Categoria:</label>
-        <select id="categoria" name="categoria" required>
-            <option value="sobremesa">Sobremesa</option>
-            <option value="pratoPrincipal">Prato Principal</option>
-            <option value="entrada">Entrada</option>
-        </select>
+        <div class="field-group">
+            <label for="ingredientes" class="form-label">Ingredientes</label>
+            <textarea class="form-control" id="ingredientes" name="ingredientes" rows="3" required></textarea>
+        </div>
 
-        <label for="avaliacao">AvaliaÃ§Ã£o:</label>
-        <input type="number" id="avaliacao" name="avaliacao" min="1" max="5" required>
-        
-        <label for="foto">Foto da Receita:</label>
-		<input type="file" id="foto" name="foto" accept="image/*" required>
+        <div class="field-group">
+            <label for="modo" class="form-label">Modo de Preparo</label>
+            <textarea class="form-control" id="modo" name="modo" rows="4" required></textarea>
+        </div>
 
-        <button type="submit">Adicionar Receita</button>
+        <div class="field-group">
+            <label for="foto" class="form-label">Foto da Receita</label>
+            <input type="file" class="form-control" id="foto" name="foto" accept="image/*" required>
+        </div>
+
+        <div class="d-grid mt-4">
+            <button type="submit" class="btn btn-success">Salvar</button>
+        </div>
     </form>
 </div>
+<%@ include file="footer.jsp" %>
 
-</body>
-</html>
+
+
