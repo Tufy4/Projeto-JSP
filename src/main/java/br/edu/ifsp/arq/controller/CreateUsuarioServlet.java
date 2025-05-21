@@ -33,7 +33,7 @@ public class CreateUsuarioServlet extends HttpServlet {
 		        request.getRequestDispatcher("/login.jsp").forward(request, response);
 		    } else {
 		        request.setAttribute("erro", "Usuário já existe!");
-		        request.getRequestDispatcher("/index.jsp").forward(request, response);
+		        request.getRequestDispatcher("/error.jsp").forward(request, response);
 		    }
 		}
 

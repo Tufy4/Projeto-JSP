@@ -27,6 +27,7 @@ public class ReadReceitaServlet extends HttpServlet {
         request.setAttribute("listaReceitas", listaReceitas);
 
         request.getRequestDispatcher("/lista-receitas.jsp").forward(request, response);
+       
     }
 }
 

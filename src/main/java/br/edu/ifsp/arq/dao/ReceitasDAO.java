@@ -33,4 +33,19 @@ public class ReceitasDAO {
 //		if(lista)
 		return this.listaDeReceitas;
 	}
+	
+	public Receita getReceita(String id) {
+		Receita ReceitaBusca=null;
+		
+		int ID = Integer.parseInt(id);
+		for(Receita RECEITA:listaDeReceitas) {
+			if(ID== RECEITA.getId()) {
+				ReceitaBusca = RECEITA;
+			}
+		}
+		
+		
+		return ReceitaBusca;
+	}
+	
 }

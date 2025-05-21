@@ -125,70 +125,52 @@
     <!-- Receitas Populares -->
     <div class="container mt-5">
         <h2 class="text-center mb-4">RECEITAS POPULARES</h2>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-            <!-- Card de Receita -->
-            <div class="col">
-                <div class="card h-100">
-                    <img src="images/receita1.jpg" class="card-img-top" alt="Imagem da Receita">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Nome da Receita</h5>
-                        <p class="card-text">Descrição breve da receita.</p>
-                        <button class="btn btn-primary w-100 mt-3" data-bs-toggle="modal"
-                            data-bs-target="#modalReceita1">
-                            Ver Receita
-                        </button>
-                    </div>
-                    <div class="card-footer text-muted d-flex justify-content-between align-items-center">
-                        <small>Tempo de Preparo: A definir</small>
-                        <small class="text-muted">Categoria: A definir</small>
-                    </div>
-                </div>
-            </div>
-        </div>
+         <%
+         ReceitasDAO dao = ReceitasDAO.getInstance();	
+ArrayList<Receita> lista = dao.getListaReceitas();
+
+
+    if (lista == null || lista.isEmpty()) {
+%>
+    <div class="alert alert-warning" role="alert">
+        Não há receitas cadastradas.
+    </div>
+<%
+    } else {
+%>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+<%
+        for (Receita receita : lista) {
+%>		
+	        <div class="col">
+	            <div class="card h-100">
+	            	<a href="Receita?id=<%=receita.getId() %>">
+	                	<img src="<%= receita.getFotoPath() %>" class="card-img-top" alt="Foto da receita <%= receita.getNomeReceita() %>" style="max-height: 200px; object-fit: cover;">
+	                </a>
+	                <div class="card-body">
+	                    <h5 class="card-title"><%= receita.getNomeReceita() %></h5>
+	                    <h6 class="card-subtitle mb-2 text-muted">Autor: <%= receita.getAutor() %></h6>
+	                    <p class="card-text">
+	                        <strong>Tempo de preparo:</strong> <%= receita.getTempo() %><br>
+	                        <strong>Categoria:</strong> <%= receita.getCategoria() %>
+	                    </p>
+	                </div>
+	               
+	            </div>
+	        </div>
+      
+<%
+        }
+%>
+    </div>
+<%
+    }
+%>
     </div>
 
-    <!-- Modal da Receita -->
-    <div class="modal fade" id="modalReceita1" tabindex="-1" aria-labelledby="modalReceitaLabel1" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalReceitaLabel1">Nome da Receita</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img src="images/receita1.jpg" class="img-fluid" alt="Imagem da Receita">
-                        </div>
-                        <div class="col-md-6">
-                            <p><strong>Autor:</strong> Nome do Autor</p>
-                            <p><strong>Tempo de Preparo:</strong> A definir</p>
-                            <p><strong>Rendimento:</strong> A definir</p>
-                            <p><strong>Categoria:</strong> A definir</p>
-                        </div>
-                    </div>
-                    <h5>Ingredientes</h5>
-                    <ul>
-                        <li>Ingrediente 1</li>
-                        <li>Ingrediente 2</li>
-                        <li>Ingrediente 3</li>
-                        <!-- Adicione mais ingredientes conforme necessÃ¡rio -->
-                    </ul>
-                    <h5>Modo de Preparo</h5>
-                    <ol>
-                        <li>Passo 1</li>
-                        <li>Passo 2</li>
-                        <li>Passo 3</li>
-                        <!-- Adicione mais passos conforme necessÃ¡rio -->
-                    </ol>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                </div>
-            </div>
-        </div>
-    </div>
+  
 
-   
+    
+</div> 
    
   <%@ include file="footer.jsp" %>

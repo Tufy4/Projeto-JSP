@@ -2,7 +2,7 @@
 
 <%
 if (session.getAttribute("usuarioNome") == null) {
-    response.sendRedirect("login.jsp");
+    response.sendRedirect("error.jsp");
 }
 %>
 
@@ -10,8 +10,9 @@ if (session.getAttribute("usuarioNome") == null) {
     <h2 class="minimal-title text-center">Nova Receita</h2>
     <form action="CreateReceitaServlet" method="post" enctype="multipart/form-data">
         <div class="field-group">
+        
             <label for="nome" class="form-label">Nome da Receita</label>
-            <input type="text" class="form-control" id="nome" name="nome" required>
+            <input type="text" class="form-control" id="nome" name="nomeReceita" required>
         </div>
 
         <div class="field-group">
@@ -21,7 +22,7 @@ if (session.getAttribute("usuarioNome") == null) {
 
         <div class="field-group">
             <label for="tempo" class="form-label">Tempo de Preparo (minutos)</label>
-            <input type="text" class="form-control" id="tempo" name="tempo" required>
+            <input type="number" class="form-control" id="tempo" name="tempoPreparo" required>
         </div>
 
         <div class="row">
@@ -29,9 +30,9 @@ if (session.getAttribute("usuarioNome") == null) {
                 <label for="categoria" class="form-label">Categoria</label>
                 <select class="form-select" id="categoria" name="categoria" required>
                     <option value="" selected disabled>Selecione</option>
-                    <option value="sobremesa">Sobremesa</option>
-                    <option value="pratoPrincipal">Prato Principal</option>
-                    <option value="entrada">Entrada</option>
+                    <option value="Sobremesa">Sobremesa</option>
+                    <option value="Prato Principal">Prato Principal</option>
+                    <option value="Entrada">Entrada</option>
                 </select>
             </div>
 
@@ -55,7 +56,7 @@ if (session.getAttribute("usuarioNome") == null) {
 
         <div class="field-group">
             <label for="modo" class="form-label">Modo de Preparo</label>
-            <textarea class="form-control" id="modo" name="modo" rows="4" required></textarea>
+            <textarea class="form-control" id="modo" name="modoPreparo" rows="4" required></textarea>
         </div>
 
         <div class="field-group">
