@@ -63,7 +63,15 @@ public class Receita {
         return ingredientes;
     }
 
-    public void setIngredientes(String ingredientes) {
+    public String getFotoCaminho() {
+		return fotoCaminho;
+	}
+
+	public void setFotoCaminho(String fotoCaminho) {
+		this.fotoCaminho = fotoCaminho;
+	}
+
+	public void setIngredientes(String ingredientes) {
         this.ingredientes = ingredientes;
     }
 
