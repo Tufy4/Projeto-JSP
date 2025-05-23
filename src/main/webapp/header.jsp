@@ -48,7 +48,7 @@ main {
 
 
    
-<header class="header-custom py-4 shadow">
+<header class="header-custom py-4 shadow ">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-6 mb-3 mb-md-0 text-center text-md-start">
@@ -57,7 +57,7 @@ main {
             </div>
             <div class="col-md-6">
                 <form action="buscarReceitas" method="get">
-    				<input type="text" name="busca" placeholder="Buscar receita..." required>
+    				<input class="texto" type="text" name="busca" placeholder="Buscar receita..." required>
     				<input type="submit" value="Pesquisar">
 				</form>
 

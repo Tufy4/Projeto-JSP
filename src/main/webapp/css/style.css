@@ -35,7 +35,7 @@ form {
 
 
 
-input[type="text"] {
+input.texto{
     flex: 1;
     border: none;
     outline: none;
@@ -47,13 +47,13 @@ input[type="text"] {
     
 }
 
-input[type="text"]::placeholder {
+input.texto::placeholder {
     color: #aaa;
     font-weight: 200;
    
 }
 
-input[type="text"]:focus {
+input.texto:focus {
     background: white;
 }
 
@@ -81,6 +81,8 @@ input[type="submit"]:active {
 input[type="submit"]:focus {
     box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.3);
 }
+
+
 
 
 
