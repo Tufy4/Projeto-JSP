@@ -1,8 +1,20 @@
 <%@ include file="header.jsp" %>
 
+ 
 <div class="container d-flex align-items-start justify-content-center" style="min-height: 60vh; margin-top: 30px;">
     <div class="minimal-container col-lg-6 w-100">
         <h2 class="minimal-title text-center">Cadastro de Usuário</h2>
+        
+        <%
+            String msg = (String) request.getAttribute("mensagem");
+            if (msg != null) {
+        %> 
+            <h4 class="text-center"><%= msg %></h4>
+        <%
+            }
+        %>
+        
+        
         <form action="CreateUsuarioServlet" method="post">
             <div class="field-group">
                 <label for="nome" class="form-label">Nome</label>

@@ -39,20 +39,20 @@ public class LoginServlet extends HttpServlet {
 		if (usuario.isEmpty() || senha.isEmpty()) {
 			msg = "Tem que preencher o campo de usuario e senha";	
 			request.setAttribute("mensagem", msg);
-			getServletContext().getRequestDispatcher("/error.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
 		} else {
 			Usuario t = new Usuario(usuario, senha);
 			retorno = dao.FazerLogin(t);
 
 			if (retorno == -1) {
 				msg = "Não há usuários cadastrados";
-				System.out.println(msg);
-				getServletContext().getRequestDispatcher("/error.jsp").forward(request, response);
+				request.setAttribute("mensagem", msg);
+				getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
 			} else if (retorno == 0) {
 				msg = "Senha ou Login incorretos";
 				System.out.println(msg);
 				request.setAttribute("mensagem", msg);
-				getServletContext().getRequestDispatcher("/error.jsp").forward(request, response);
+				getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
 			} else {
 				
 				System.out.println("Logado com sucesso");

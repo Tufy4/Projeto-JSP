@@ -1,15 +1,15 @@
 <%@ include file="header.jsp" %>
 
-<!-- Conteúdo Principal -->
+
 <div class="container mt-5">
   <h1 class="text-center mb-4">Sobre o Sistema</h1>
 
-  <!-- Parágrafo de introdução -->
+ 
   <p class="lead text-center mb-4">
     Bem-vindo ao Gerenciador de Receitas Culinárias! Este sistema foi desenvolvido para facilitar o cadastro, visualização, edição e remoção de receitas culinárias por usuários registrados.
   </p>
   
-  <!-- Seção de Funcionalidades -->
+
   <div class="row">
     <div class="col-lg-6 mb-4">
       <h3>Funcionalidades Principais</h3>
@@ -22,7 +22,7 @@
       </ul>
     </div>
 
-    <!-- Seção de Objetivo -->
+  
     <div class="col-lg-6">
       <h3>Objetivo do Sistema</h3>
       <p>
@@ -31,13 +31,13 @@
     </div>
   </div>
 
-  <!-- Chamada para Ação -->
+
   <p class="text-center mt-4">
-    <a href="CadastrarUsuario.jsp" class="btn btn-success">Comece Agora e Faça seu Cadastro</a>
+    <a href="CadastrarUsuario.jsp" class="btn btn-warning">Comece Agora!</a>
   </p>
 </div>
 
-<!-- Scripts do Bootstrap -->
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

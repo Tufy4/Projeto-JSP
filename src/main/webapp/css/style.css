@@ -1,176 +1,104 @@
-/* Ajustando o carrossel para ser menor e centralizado */
-.carousel-inner {
-	height: 600px;
-	/* Defina a altura do carrossel */
+
+
+.fs-2.fw-bold {
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 2.5rem;
 }
 
-.carousel-inner img {
-	object-fit: cover;
-	/* Garante que a imagem preencha o espaço sem distorcer */
-	height: 100%;
-	/* A imagem ocupará 100% da altura do carrossel */
+.mb-0 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 300;
 }
 
-.carousel {
-	max-width: 1200px;
-	/* Limita a largura do carrossel */
-	margin: 0 auto;
-	/* Centraliza o carrossel na página */
+form {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-#carouselExampleIndicators {
-	margin-top: 50px;
-	/* Adiciona 50px de margem superior ao carrossel */
+.search-container {
+    display: flex;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 2px solid #e9ecef;
 }
 
-.mt-50 {
-	margin-top: 50px;
-}
-
-
-body {
-	font-family: 'Roboto', sans-serif;
-}
-
-h2 {
-	font-family: 'Quicksand', sans-serif;
-	color: #e74c3c;
-	margin-bottom: 30px;
-}
-
-.carousel-item {
-	position: relative;
-	height: 500px;
-	min-height: 400px;/* Defina uma altura mínima */
-
-}
-
-.carousel-item img {
-	object-fit: cover;
-	height: 100%;
-}
-
-.carousel-caption {
-	background-color: rgba(0, 0, 0, 0.5);
-	border-radius: 5px;
-	padding: 20px;
-	max-width: 90%;
-	word-wrap: break-word;
-	bottom: 10%;
-}
-
-.carousel-caption h5 {
-	font-size: 4vw;
-	font-weight: 700;
-	color: #fff;
-}
-
-.carousel-caption p {
-	font-size: 1.2rem;
-	color: #fff;
-}
-
-.card-body {
-	padding: 15px;
-}
-
-.card-footer {
-	background-color: #f8f9fa;
-	border-top: 1px solid #ddd;
-}
-
-.card:hover {
-	transform: scale(1.05);
-	transition: all 0.3s ease-in-out;
-}
-
-.btn-recipe {
-	background-color: #e74c3c;
-	color: white;
-	border: none;
-	padding: 10px 20px;
-	text-transform: uppercase;
-	font-weight: bold;
-	border-radius: 5px;
-}
-
-.btn-recipe:hover {
-	background-color: #c0392b;
-	cursor: pointer;
-}
-
-/* Estilo adicional para o botão */
-.btn {
-	width: 200px;
-	/* Defina a largura do botão */
-	height: 60px;
-	/* Defina a altura do botão */
-	font-size: 18px;
-	/* Ajuste o tamanho da fonte */
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	/* Centraliza o texto dentro do botão */
+.search-container:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    border-color: #dee2e6;
 }
 
 
-#searchForm {
-	transition: all 0.3s ease;
-	position: absolute;
-	top: 50%;
-	right: 0;
-	transform: translateY(-50%);
-	background-color: white;
-	border-radius: 25px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	padding: 5px 10px;
-	display: flex;
-	align-items: center;
-	width: 0;
-	opacity: 0;
+
+input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    background: white;
+    color: #333;	
+     border-radius:30px;
+    
 }
 
-#searchForm.open {
-	width: 200px;
-	opacity: 1;
+input[type="text"]::placeholder {
+    color: #aaa;
+    font-weight: 200;
+   
 }
 
-#searchForm input {
-	border: none;
-	outline: none;
-	padding: 5px;
-	border-radius: 15px;
-	width: 100%;
+input[type="text"]:focus {
+    background: white;
 }
 
-#searchForm button {
-	border-radius: 50%;
-	padding: 5px;
-	margin-left: 5px;
+input[type="submit"] {
+    background: #fff3e1;
+    border: none;
+    padding: 1rem 2rem;
+    color: black;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius:30px;
 }
 
-#searchToggle {
-	font-size: 1.5rem;
-	background: none;
-	border: none;
-	color: white;
-	cursor: pointer;
+input[type="submit"]:hover {
+    background: #ffffff;
+    transform: scale(1.02);
 }
 
-#searchCollapse {
-	transition: max-height 0.3s ease-in-out;
-	max-height: 0;
-	overflow: hidden;
+input[type="submit"]:active {
+    transform: scale(0.98);
 }
 
-#searchCollapse.show {
-	max-height: 200px;
-	/* Ajuste conforme necessário */
+input[type="submit"]:focus {
+    box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.3);
 }
 
-/* Altera a cor do ícone da lupa */
-.navbar .btn-search .bi-search {
-	color: #007bff;
-	/* Substitua por qualquer cor desejada */
+
+
+
+
+
+@media (max-width: 768px) {
+    .fs-2.fw-bold {
+        font-size: 2rem;
+    }
+    
+    .search-container {
+        flex-direction: column;
+        border-radius: 15px;
+    }
+    
+    input[type="submit"] {
+        border-radius: 0;
+        text-align: center;
+    }
 }

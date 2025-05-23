@@ -19,6 +19,7 @@ import br.edu.ifsp.arq.model.Usuario;
 public class CreateUsuarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private int erro;
+	public String msg;
 	 private UsuarioDAO dao=UsuarioDAO.getInstance();  
    
 
@@ -29,11 +30,11 @@ public class CreateUsuarioServlet extends HttpServlet {
 		    if (dao.ExisteUsuario(nomeUsuario,password)==false) {
 		        Usuario newUser = new Usuario(nomeUsuario, password);
 		        dao.adicionarUsuarios(newUser);
-		        System.out.println("DEU CERTO");
 		        request.getRequestDispatcher("/login.jsp").forward(request, response);
 		    } else {
-		        request.setAttribute("erro", "Usuário já existe!");
-		        request.getRequestDispatcher("/error.jsp").forward(request, response);
+		        msg = "Usuário já existe!";
+		        request.setAttribute("mensagem", msg);
+		        getServletContext().getRequestDispatcher("/CadastrarUsuario.jsp").forward(request, response);
 		    }
 		}
 

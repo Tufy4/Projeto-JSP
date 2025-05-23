@@ -3,6 +3,7 @@
 <%@ page import="br.edu.ifsp.arq.model.Receita" %>
 <%@ page import="br.edu.ifsp.arq.dao.ReceitasDAO" %>
 <%@ page import="br.edu.ifsp.arq.model.Usuario" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,6 +12,7 @@
 <title>Sistema de Receitas</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="images/ovo2.svg">
+ <link rel="stylesheet" href="css/style.css">
 <link>
 	
 <style>
@@ -54,10 +56,11 @@ main {
                 <p class="mb-0">Seu portal de receitas deliciosas</p>
             </div>
             <div class="col-md-6">
-                <form class="d-flex">
-                    <input type="text" class="form-control" placeholder="Pesquisar receitas...">
-                    <button class="btn btn-light" type="submit">Buscar</button>
-                </form>
+                <form action="buscarReceitas" method="get">
+    				<input type="text" name="busca" placeholder="Buscar receita..." required>
+    				<input type="submit" value="Pesquisar">
+				</form>
+
             </div>
         </div>
     </div>

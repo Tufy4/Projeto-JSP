@@ -30,10 +30,19 @@
                                 <strong>Categoria:</strong> <%= receita.getCategoria() %>
                             </p>
                         </div>
-                        <div class="card-footer d-flex justify-content-between">
-                            <a href="/Projeto-Receitas/UpdateReceitaServlet?id=<%= receita.getId() %>" class="btn btn-sm btn-dark">Editar</a>
-                            <a href="/Projeto-Receitas/DeleteReceitaServlet?id=<%= receita.getId() %>" class="btn btn-sm btn-danger">Deletar</a>
-                        </div>
+                        <%
+    						usuario = (Usuario) session.getAttribute("usuario");
+    						if (usuario != null) {
+    					%>
+    					
+                        		<div class="card-footer d-flex justify-content-between">
+                            		<a href="/Projeto-Receitas/UpdateReceitaServlet?id=<%= receita.getId() %>" class="btn btn-sm btn-dark">Editar</a>
+                            		<a href="/Projeto-Receitas/DeleteReceitaServlet?id=<%= receita.getId() %>" class="btn btn-sm btn-danger">Deletar</a>
+                        		</div>
+                       <% 
+                       		}
+                        %>
+
                     </div>
                 </div>
         
@@ -44,10 +53,25 @@
         <%
         }
         %>
-
-        <div class="mt-4">
-            <a href="/Projeto-Receitas/CadastrarReceitas.jsp" class="btn btn-success">Adicionar Nova Receita</a>
-        </div>
+	
+	
+	
+		<%
+    		usuario = (Usuario) session.getAttribute("usuario");
+    		if (usuario != null) {
+    	%>
+    					
+        		<div class="mt-4">
+            		<a href="/Projeto-Receitas/CadastrarReceitas.jsp" class="btn btn-success">Adicionar Nova Receita</a>
+        		</div>
+        <% 
+             }
+        %>
+        
+        
+        
+        
+        
     </div>
 </div>
 
